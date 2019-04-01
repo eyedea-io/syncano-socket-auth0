@@ -1,0 +1,35 @@
+name: auth0
+description: auth0 description
+
+endpoints:
+  verify:
+    description: verify user token
+    inputs:
+      properties:
+        access_token:
+          type: string
+          description: User token
+        expires_in:
+          type: number
+          description: token expires time
+        token_type:
+          type: string
+          description: token type
+        state:
+          type: string
+          description: token state
+
+
+config:
+  DOMAIN_NAME:
+    description: domain name
+    required: true
+  REDIRECT_URL:
+    description: Redirect url
+    required: true
+  CLIENT_ID:
+    description: Client Id
+    required: true
+  CLIENT_SECRET:
+    description: Client secret id
+    required: true
