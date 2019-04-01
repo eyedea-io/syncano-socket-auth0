@@ -11,7 +11,7 @@ interface Args {
 class Endpoint extends S.Endpoint {
   async run(
     {response, users}: S.Core,
-    {args, config}: S.Context<Args>
+    {args, config, meta}: S.Context<Args>
   ) {
     try {
       const {data: tokenData} = await axios({
@@ -22,7 +22,7 @@ class Endpoint extends S.Endpoint {
           client_id: config.CLIENT_ID,
           client_secret: config.CLIENT_SECRET,
           code: args.code,
-          redirect_uri: 'https://aged-butterfly-8802.syncano.space/auth0/verify/',
+          redirect_uri: `https://${meta.instance}.syncano.space/auth0/verify/`,
         },
       })
 
