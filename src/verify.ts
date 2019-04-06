@@ -22,7 +22,7 @@ class Endpoint extends S.Endpoint {
           client_id: config.CLIENT_ID,
           client_secret: config.CLIENT_SECRET,
           code: args.code,
-          redirect_uri: `https://${meta.instance}.syncano.space/auth0/verify/`,
+          redirect_uri: `https://${meta.instance}${meta.api_host.includes('eu1') ? '.eu1' : ''}.syncano.space/auth0/verify/`,
         },
       })
 
