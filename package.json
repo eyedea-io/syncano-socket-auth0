@@ -1,6 +1,6 @@
 {
   "name": "@eyedea-sockets/auth0",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "auth0 socket",
   "repository": "https://github.com/eyedea-io/syncano-socket-auth0.git",
   "public": true,
