@@ -35,20 +35,18 @@ class Endpoint extends S.Endpoint {
         },
       })
 
-      let user = await users.where('username', 'eq', userProfile.email).first()
-
-      if (!user) {
-        user = await users
-          .fields('id', 'user_key as token')
-          .create({
-            username: userProfile.email,
-            email: userProfile.email,
-            password: crypto.randomBytes(16).toString('hex'),
-          })
-      }
+      const profile = await users
+      .fields('id', 'user_key as token', )
+      .firstOrCreate({
+        username: userProfile.email,
+      }, {
+        username: userProfile.email,
+        email: userProfile.email,
+        password: crypto.randomBytes(16).toString('hex'),
+      })
 
       response('', 302, '', {
-        Location: `${config.REDIRECT_URL}/?${querystring.stringify(user)}`,
+        Location: `${config.REDIRECT_URL}/?${querystring.stringify(profile)}`,
       })
     } catch (err) {
       response.json({message: err.message}, 400)
