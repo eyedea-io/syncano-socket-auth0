@@ -39,7 +39,7 @@ class Endpoint extends S.Endpoint {
 
       if (!user) {
         user = await users
-          .fields('id', 'user_key as token', )
+          .fields('id', 'user_key as token')
           .create({
             username: userProfile.email,
             email: userProfile.email,
