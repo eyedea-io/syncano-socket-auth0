@@ -18,6 +18,8 @@ endpoints:
         state:
           type: string
           description: token state
+  generate-url:
+    description: auth0 authentication url
 
 
 config:
